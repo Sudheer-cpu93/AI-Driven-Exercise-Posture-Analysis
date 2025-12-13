@@ -4,10 +4,7 @@ from collections import deque
 
 
 def calculate_angle(a, b, c):
-    """
-    Calculates the angle (in degrees) between three 2D points.
-    b: The vertex of the angle (e.g., Elbow or Hip).
-    """
+    
     a = np.array(a)  
     b = np.array(b)  
     c = np.array(c)  
@@ -46,7 +43,7 @@ def draw_feedback_box(frame, feedback_list, position="top_left"):
     else:
         x, y = 10, height - 200
     
-    # Draw each message
+    
     for i, line in enumerate(feedback_list):
         # Color based on message content
         if "PERFECT" in line or "GOOD" in line:
