@@ -2,9 +2,7 @@ from utils import calculate_angle, SmoothingBuffer
 
 
 class FormAnalyzer:
-    """
-    Analyzes exercise form for your dataset exercises
-    """
+  
     
     def __init__(self, exercise='pushups'):
         self.exercise = exercise.lower()
@@ -19,10 +17,7 @@ class FormAnalyzer:
         print(f"FormAnalyzer initialized for: {exercise}")
     
     def analyze_frame(self, coords):
-        """
-        Main analysis function
-        Returns: feedback list and overall status
-        """
+        
         if self.exercise == 'pushups':
             return self._analyze_pushups(coords)
         elif self.exercise == 'bodyweightsquats':
@@ -44,7 +39,7 @@ class FormAnalyzer:
         else:
             return [f"Exercise {self.exercise} not configured"], "UNKNOWN EXERCISE"
     
-    # ========== PUSH-UPS ANALYSIS ==========
+    #  PUSH-UPS ANALYSIS 
     
     def _analyze_pushups(self, coords):
         """Push-ups form analysis - 5 rules"""
@@ -91,7 +86,7 @@ class FormAnalyzer:
             l_shoulder = coords['L_SHOULDER']
             l_elbow = coords['L_ELBOW']
             
-            # Elbow flare check (simplified)
+        
             fb3 = "Elbow Position OK"
             if angle1 < 90:
                 fb3 = "Keep elbows at 45° from body."
@@ -124,7 +119,7 @@ class FormAnalyzer:
         
         return full_feedback, overall_status
     
-    # ========== BODYWEIGHT SQUATS ANALYSIS ==========
+    # BODYWEIGHT SQUATS ANALYSIS 
     
     def _analyze_squats(self, coords):
         """BodyWeight Squats analysis - 5 rules"""
@@ -212,7 +207,7 @@ class FormAnalyzer:
         
         return full_feedback, overall_status
     
-    # ========== LUNGES ANALYSIS ==========
+    # LUNGES ANALYSIS 
     
     def _analyze_lunges(self, coords):
         """Lunges analysis - 5 rules"""
